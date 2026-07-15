@@ -1,6 +1,6 @@
 # 100 Days of Code - Python Bootcamp
 
-My personal repository for tracking my progress through the **100 Days of Code: The Complete Python Pro Bootcamp**. Here you will find all the daily final projects.
+My personal repository for tracking my progress through the 100 Days of Code: The Complete Python Pro Bootcamp. Here you will find all the daily final projects.
 
 ## 🚀 Final Projects
 
@@ -12,7 +12,11 @@ My personal repository for tracking my progress through the **100 Days of Code: 
 * **Day 6:** Escaping the Maze
 * **Day 7:** Hangman Game
 * **Day 8:** Caesar Cipher
+* **Day 9:** Secret Auction Program
+* **Day 10:** Calculator Game
 
 ## 🛠️ Technologies Used
+
 * Python 3
 * Git & GitHub
+* WSL (Windows Subsystem for Linux)
