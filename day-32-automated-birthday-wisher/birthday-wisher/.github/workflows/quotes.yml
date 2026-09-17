@@ -1,0 +1,32 @@
+name: Monday Motivational Quotes
+
+on:
+  schedule:
+    # Se ejecuta todos los lunes a las 8:00 AM UTC (puedes cambiar la hora si quieres)
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # Permite probarlo manualmente desde la web
+
+jobs:
+  run-quotes-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run Python script
+        env:
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_MAIL_PASSWORD: ${{ secrets.MY_MAIL_PASSWORD }}
+        run: |
+          python main.py

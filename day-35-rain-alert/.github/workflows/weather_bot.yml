@@ -1,0 +1,30 @@
+name: Run Weather Bot
+
+on:
+  schedule:
+    # Se ejecuta todos los días a las 08:00 UTC
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Te permite darle a un botón para probarlo manualmente en GitHub
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run script
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
+        run: python main.py

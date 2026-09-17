@@ -1,0 +1,31 @@
+name: Daily Script
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-birthday-wisher:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Python script
+        env:
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_MAIL_PASSWORD: ${{ secrets.MY_MAIL_PASSWORD }}
+        run: |
+          python main.py
