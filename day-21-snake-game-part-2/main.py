@@ -2,7 +2,6 @@ import time
 from turtle import Screen
 
 from countdown import Countdown
-
 from food import Food
 from scoreboard import Scoreboard
 from snake import Snake
@@ -51,12 +50,7 @@ while game_is_on:
         snake.extend()
 
     # Detect collision with a wall:
-    if (
-        snake.head.xcor() > 290
-        or snake.head.xcor() < -300
-        or snake.head.ycor() > 300
-        or snake.head.ycor() < -290
-    ):
+    if snake.head.xcor() > 290 or snake.head.xcor() < -300 or snake.head.ycor() > 300 or snake.head.ycor() < -290:
         game_is_on = False
         scoreboard.game_over()
 

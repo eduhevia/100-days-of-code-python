@@ -7,7 +7,7 @@ CHAT_ID_TELEGRAM = os.environ.get("TELEGRAM_CHAT_ID")
 api_key = os.environ.get("OWM_API_KEY")
 
 OWM_Endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-weather_params = {"lat": 37.366667, "lon": 143.700000, "appid": api_key, "cnt": 4}
+weather_params = {"lat": 38.4288, "lon": -0.3977, "appid": api_key, "cnt": 4}
 
 response = requests.get(url=OWM_Endpoint, params=weather_params)
 response.raise_for_status()

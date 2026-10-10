@@ -1,0 +1,7 @@
+# Python environment
+venv/
+__pycache__/
+*.pyc
+
+# Security & Secrets
+.env
